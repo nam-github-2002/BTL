@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./font/themify-icons/themify-icons.css">
+   <link rel="stylesheet" href="./css/keyframe.css">
+   <!-- <script src="./js/popper.min.js"></script> -->
+   <link rel="stylesheet" href="./css/bootstrap.min.css">
+   <script src="./js/jquery-3.6.3.min.js"></script>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="./css/main.css">
+   <link rel="stylesheet" href="./css/reponsive.css">
+   <title>Cửa Hàng Trang Trí Nội Thất</title>
+</head>
+<body>
+<!-- Navbar/Header -->
+<nav class="navbar navbar-expand-lg sticky-top">
+<div class="container-fluid px-5 py-2">
+   <a href="#" class="navbar-brand">
+      <img src="./Images/decor-low-resolution-logo-color-on-transparent-background.png" alt="Logo" height="70">
+   </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navReponsive" aria-controls="navReponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+         <i class="ti-menu"></i>
+      </span>
+      </button> 
+
+   <div class="collapse navbar-collapse" id="navReponsive">
+      <ul class="navbar-nav">
+   
+         <li class="nav-item my-3 ml-5 active">
+            <a href="#" class="nav-link home-btn">Trang chủ</a>
+         </li>
+         <li class="nav-item my-3 ml-5">
+            <a href="#members" class="nav-link member-btn">Thành viên</a>
+         </li>
+         <li class="nav-item my-3 ml-5">
+            <a href="#introduce" class="nav-link introduce-btn">Giới thiệu</a>
+         </li>
+         <li class="nav-item my-3 ml-5">
+            <a href="#products" class="nav-link products-btn">Sản phẩm</a>
+         </li>
+         <li class="nav-item my-3 ml-5">
+            <a href="#loginModal" class="nav-link login-btn">Đăng nhập</a>
+         </li>
+         <li class="nav-item my-3 ml-5 my-auto">
+            <a href="#search-modal" class="nav-link search-btn border-0 ">
+               <i class="ti-search text-big"></i>
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>
+</nav>
+
+<!--  FORM TÌM KIẾM -->
+<div class="modal" id="search-modal">
+   <div class="modal-dialog">
+      <div class="modal-content bg-transparent">
+         <form action="" method="get" id="form-search">
+            <input class="bg-transparent-1 text-big text-bg" type="search" placeholder="Tìm kiếm sản phẩm...">
+            <button class="search-submit">
+               <i class="ti-search text-big"></i>
+            </button>
+         </form>
+      </div>
+   </div>
+</div>
+
+<!-- FORM ĐĂNG NHẬP -->
+<div class="modal" id="loginModal">
+<div class="modal-dialog">
+   <div class="modal-content rounded">
+
+      <div class="modal-header bg-main">
+         <ul class="nav nav-pills">
+            <li class="nav-item active tabLogin-btn"><h3 class="text-md text-txtcolor px-5 py-4">Đăng nhập</h3></li>
+            <li class="nav-item tabRegist-btn"><h3 class="text-md text-txtcolor px-5 py-4">Đăng kí</h3></li>
+         </ul>
+         <button class="close" data-dismiss="modal">
+            <i class="ti-close text-md text-bg"></i>
+         </button>
+      </div>   
+
+      <div class="modal-body">
+         <!-- LOGIN FORM -->
+         <form action="" id="login-form">
+            <div class="form-group">
+               <label class="text-md" for="login-input">Tài khoản: </label>
+               <input class="text-md w-100 form-control" type="text" name="" id="login-input">
+            </div>
+            <div class="form-group my-4">
+               <label class="text-md" for="login-input-password">Mật khẩu: </label>
+               <input class="text-md w-100 form-control" type="password" name="" id="login-input-password">
+            </div>
+            <div class="row">
+               <span class="text-md ml-5">Chưa có tài khoản? <a class="text-md tabRegist-btn" href="#regist-form">Đăng kí</a></span>
+            </div>
+         </form>
+
+         <!-- REGIST FORM -->
+         <form action="" id="regist-form" class="hide">
+            <div class="form-group mb-2">
+               <label for="regist-name" class="text-md">Tài khoản: </label>
+               <input require type="text" name="" id="regist-name" class="text-md form-control">
+               <span class="text-sm my-1 text-danger" id="text-regist-name"></span>
+            </div>
+            <div class="form-group mb-2">
+               <label for="regist-password" class="text-md">Mật khẩu: </label>
+               <input require type="password" name="" id="regist-password" class="text-md form-control" placeholder="Ít nhất 1 chữ thường,1 chữ hoa, 1 chữ số và 8 kí tự">
+               <span class="text-sm" id="text-regist-pass"></span>
+            </div>
+            <div class="form-group mb-2">
+               <label for="password-reliable" class="text-md">Nhập lại mật khẩu: </label>
+               <input require type="password" name="" id="password-reliable" class="text-md form-control">
+               <span class="text-sm text-danger" id="text-regist-reliable"></span>
+            </div>
+
+            <hr>
+
+            <h2 class="text-md text-center mb-3 text-main">Nhập thông tin cá nhân</h2>
+
+            <div class="form-row my-2">
+               <div class="col">
+                  <input require type="text" name="" id="name" class="text-md form-control" placeholder="Họ tên...">
+                  <span class="text-sm text-danger" id="checkName"></span>
+               </div>
+               <div class="col">
+                  <div class="form-check form-check-inline ml-5">
+                     <input type="radio" id="check-gt1" value="1" name="gioitinh">
+                     <label for="check-gt1" class="text-md ml-2">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input type="radio" id="check-gt2" value="2" name="gioitinh">
+                     <label for="check-gt2" class="text-md ml-2">Nữ</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input type="radio" id="check-gt3" value="3" name="gioitinh">
+                     <label for="check-gt3" class="text-md ml-2">Khác</label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form-row mb-2">
+               <label for="birthdate" class="text-md col-3">Ngày sinh: </label>
+               <input require type="date" name="" id="birthdate" class="form-control col-lg-8 col-md-12 ml-3 text-md">
+               <span class="text-sm text-danger" id="checkBirthdate"></span>
+            </div>
+
+            <div class="form-row">
+               <div class="col-7 mb-2">
+                  <input require type="email" name="" class="text-md w-100 px-5 py-2" id="email" placeholder="Email...">
+                  <span class="text-sm text-danger" id="checkEmail"></span>
+               </div>
+               <div class="col-5 mb-2">
+                  <input require type="text" name="" class="text-md w-100 px-5 py-2" id="phone" placeholder="Số điện thoại...">
+                  <span class="text-sm text-danger" id="checkPhone"></span>
+               </div>
+            </div>
+            <div class="form-row mb-2">
+               <input require type="text" name="" class="text-md w-100 px-5 py-2" id="address" placeholder="Địa chỉ...">
+               <span class="text-sm text-danger" id="checkAdress"></span>
+            </div>
+
+            <div class="form-check-inline">
+               <input class="form-check-label" type="checkbox" id="agree" name="agree">
+               <label for="agree" class="text-md form-check-input ml-3">Tôi đồng ý với <a class="text-md" href="#">Chính sách và điều khoản</a> của trang web.</label>
+            </div>
+         </form>
+
+      </div>
+
+      <div class="modal-footer">
+         <button class="btn bg-primary text-md mx-auto px-4 py-2" type="submit" id="login-btn">Đăng nhập</button>
+         <button class="btn bg-primary text-md mx-auto px-4 py-2 d-none" type="submit" id="sigin-up-btn">Đăng kí</button> 
+      </div>
+
+   </div>
+</div>
+</div>
+
+
+<!-- GIỎ HÀNG -->
+<div class="dropleft cart">
+   <button type="button" class="btn shopping-cart-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="ti-shopping-cart"></i>
+   </button>
+   <div class="dropdown-menu rounded">
+
+     <div class="dropdown-item cart-item rounded">
+         <img height="65" class="rounded" src="./Images/gương trang trí3/guongtrangtri1.jpg" alt="">
+
+         <div class="cart-item-title">
+            <h4 class="float-left mb-1">Gương trang trí</h4><br>
+            <span class="d-block float-left">Phân loại: Gương</span>
+         </div>
+
+         <div class="cart-item-pay ml-auto">
+            <span class="text-main">3.199.000</span>
+            <span>x</span>
+            <span>1</span>
+            <br>
+            <button class="btn border-0 text-main">Xoá</button>
+         </div>
+     </div>
+     <div class="dropdown-item cart-item rounded">
+         <img height="65" class="rounded" src="./Images/lọ hoa5/canhhongtrangtri.jpg" alt="">
+
+         <div class="cart-item-title">
+            <h4 class="float-left mb-1">Cành hồng trang trí</h4><br>
+            <span class="d-block float-left">Phân loại: Lọ hoa</span>
+         </div>
+
+         <div class="cart-item-pay ml-auto">
+            <span class="text-main">2.199.000</span>
+            <span>x</span>
+            <span>3</span>
+            <br>
+            <button class="btn border-0 text-main">Xoá</button>
+         </div>
+     </div>
+     <div class="dropdown-item cart-item rounded">
+         <img height="65" class="rounded" src="./Images/treo tường7/Tranh-Gau-trai-timLDT113lingdecor2-300x300.jpg" alt="">
+
+         <div class="cart-item-title">
+            <h4 class="float-left mb-1">Tranh gấu trái tim</h4><br>
+            <span class="d-block float-left">Phân loại: Tranh treo tường7</span>
+         </div>
+
+         <div class="cart-item-pay ml-auto">
+            <span class="text-main">4.199.000</span>
+            <span>x</span>
+            <span>1</span>
+            <br>
+            <button class="btn border-0 text-main">Xoá</button>
+         </div>
+     </div>
+
+     <button class="btn w-100 bg-main text-bg text-md mx-auto mt-3">Thanh toán</button>
+   </div>
+ </div>
+ 
+ <!-- THÀNH VIÊN -->
+<div id="members" class="container-fluid bg-primary pt-5" style="display: none;min-height: 51vh;">
+   <h1 class="text-big text-main mb-5 text-center">DANH SÁCH THÀNH VIÊN ĐĂNG KÝ</h1>
+   <table class="table table-striped mx-auto">
+      <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Họ tên</th>
+          <th scope="col">Email</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Địa chỉ</th>
+        </tr>                                                           
+      </thead>
+      <tbody id="print-info">
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+          <td>@twitter</td>
+        </tr>                                
+      </tbody>
+    </table>
+</div>
+
+
+<!-- GIỚI THIỆU -->
+<div id="introduce" style="display: none;min-height: 51vh;">
+   <div class="container my-5">
+     <div class="row">
+       <div class="col-md-4">
+         <img src="avatar.jpg" alt="Avatar" class="img-fluid rounded-circle">
+       </div>
+       <div class="col-md-8">
+         <h1 class="display-4">Phạm Duy Nam</h1>
+         <p class="lead">Mô tả ngắn về bản thân</p>
+         <hr class="my-4">
+         <h2>Thông tin liên hệ</h2>
+         <p>Email: example@example.com</p>
+         <p>Điện thoại: 0123456789</p>
+         <hr class="my-4">
+         <h2>Kỹ năng</h2>
+         <ul>
+           <li>Kỹ năng 1</li>
+           <li>Kỹ năng 2</li>
+           <li>Kỹ năng 3</li>
+         </ul>
+       </div>
+     </div>
+   </div>
+</div>
+
+
+<!-- CHI TIẾT SẢN PHẨM -->
+<div class="container-fluid py-5" id="detail-page" style="display: none;">
+   <div class="btn d-flex align-items-center ml-5 back-btn">
+      <i class="ti-arrow-left text-md"></i>
+      <span class="text-md ml-3">Trở lại</span>
+   </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-6 col-md-5 col-sm-12 px-4">
+            <img src="./Images/lọ hoa5/bolohoala.jpg" class="img-fluid detail-img"  style="object-fit: cover; width: 100%;" alt="">
+            
+         </div>
+         <div class="col-lg-6 col-md-7 col-sm-12 pl-4">
+
+            <h1 class="detail-title">Bộ lọ hoa lá</h1>
+            <div class="detail-price">1,280,000 VND</div>
+
+            <div class="detail-discount mt-3">
+               <div class="text-md">Khuyến mãi áp dụng: </div>
+               <div class="text-md ml-5 text-main">20%</div>
+            </div>
+
+            <div class="detail-cart mt-5">
+               <button class="btn desc-quantity"><i class="ti-minus"></i></button>
+               <input value="1" type="text" name="" id="9" class="text-md ml-0 detail-quantity">
+               <button class="btn ml-0 asc-quantity"><i class="ti-plus"></i></button>
+               <button class="btn text-uppercase ml-5 add-to-cart">Thêm vào giỏ hàng</button>
+            </div>   
+
+            <div class="detail-buy mt-5">
+               <button class="btn buy-btn">
+                  <span class="text-big">Mua ngay</span>
+                  <span class="text-sm">Gọi điện và xác nhận giao hàng tận nơi</span>
+               </button>
+            </div>
+
+            <div class="detail-share mt-5">
+               <span class="text-md text-txtcolor text-uppercase">Chia sẻ: </span>
+               <a href="#"><img class="ml-3" height="30" src="/Images/social/facebook-icon.png" alt=""></a>
+               <a href="#"><img class="ml-3" height="34" src="/Images/social/logo-instagram-5.jpg" alt=""></a>
+            </div>
+
+            <div class="detail-support mt-3">
+               <span class="text-big">Bạn cần hỗ trợ</span>
+               <a href="#" class="sp-mess ml-5 mt-4">
+                  <img src="/Images/social/877514_media_512x512.png" height="33" alt="">
+                  <span class="text-md ml-3">Liên hệ qua facebook</span>
+               </a>
+               <a href="#" class="sp-zalo ml-5 mt-4">
+                  <img src="/Images/social/download.png"height="33" alt="">
+                  <span class="text-md ml-3">Liên hệ qua Zalo</span>
+               </a>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- TRANG CHỦ -->
+<div id="home-content">
+   <!-- GIỚI THIỆU CỬA HÀNG -->
+     <div class="carousel slide d-none d-lg-block d-md-block" id="slides" data-ride="carousel" data-interval="4000">
+         <ol class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+            <li data-target="#slides" data-slide-to="3"></li>
+            <li data-target="#slides" data-slide-to="4"></li>
+         </ol>
+   
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img class="w-100" src="./Images/giới thiệu/1.jpeg" alt=" ">
+               <div class="carousel-caption mb-5">
+                  <h1>Sản phẩm chất lượng cao</h1>
+                  <p>Chào mừng đến với trang web trang trí nội thất của chúng tôi! Chúng tôi cung cấp một loạt các sản phẩm trang trí nội thất độc đáo để giúp bạn tạo nên không gian sống đẹp và tươi mới. Tất cả các sản phẩm của chúng tôi được thiết kế và chế tác từ các vật liệu tự nhiên, đảm bảo tính thẩm mỹ và chất lượng của chúng. Hãy khám phá các sản phẩm của chúng tôi và tìm thấy những điều bạn cần để trang trí ngôi nhà của mình.</p>
+                  <button class="btn btn-outline-light rounded w-25 text-">Xem hướng dẫn</button>
+                  <button class="btn btn-outline-light rounded w-25 ml-3 bg-main products-btn">Mua ngay</button>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="w-100" src="./Images/giới thiệu/2.jpeg" alt=" ">
+               <div class="carousel-caption mb-5">
+                  <h1>Đa dạng, độc đáo</h1>
+                  <p>Các sản phẩm trang trí nội thất của chúng tôi bao gồm đồ trang trí phòng khách, phòng ngủ, phòng bếp và phòng tắm. Chúng tôi cũng cung cấp các sản phẩm trang trí ngoại thất để giúp nâng cao giá trị của ngôi nhà bạn. Với sự đa dạng và phong phú của các sản phẩm của chúng tôi, chắc chắn bạn sẽ tìm thấy một sản phẩm phù hợp với sở thích và phong cách của mình.</p>
+                  <button class="btn btn-outline-light rounded w-25">Xem hướng dẫn</button>
+                  <button class="btn btn-outline-light rounded w-25 ml-3 bg-main products-btn">Mua ngay</button>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="w-100" src="./Images/giới thiệu/3.jpeg" alt=" ">
+               <div class="carousel-caption mb-5">
+                  <h1>Mua sắm dễ dàng</h1>
+                  <p>Trang web của chúng tôi cung cấp cho bạn một trải nghiệm mua sắm trực tuyến tuyệt vời. Chúng tôi cam kết đem đến cho bạn một quá trình mua sắm trực tuyến dễ dàng, nhanh chóng và thuận tiện. Chúng tôi cũng đưa ra các thông tin chi tiết về sản phẩm, đảm bảo bạn có được sự hiểu biết rõ ràng về sản phẩm trước khi quyết định mua.</p>
+                  <button class="btn btn-outline-light rounded w-25">Xem hướng dẫn</button>
+                  <button class="btn btn-outline-light rounded w-25 ml-3 bg-main products-btn">Mua ngay</button>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="w-100" src="./Images/giới thiệu/5.jpeg" alt=" ">
+               <div class="carousel-caption mb-5">
+                  <h1>Dịch vụ tốt nhất</h1>
+                  <p>Chúng tôi luôn đặt chất lượng sản phẩm và dịch vụ khách hàng lên hàng đầu. Chúng tôi cam kết đem đến cho bạn một trải nghiệm mua sắm trực tuyến tốt nhất. Chúng tôi cũng đưa ra chính sách bảo hành và đổi trả linh hoạt, giúp bạn yên tâm khi mua sản phẩm.</p>
+                  <button class="btn btn-outline-light rounded w-25">Xem hướng dẫn</button>
+                  <button class="btn btn-outline-light rounded w-25 ml-3 bg-main products-btn">Mua ngay</button>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="w-100" src="./Images/giới thiệu/4.jpeg" alt=" ">
+               <div class="carousel-caption mb-5">
+                  <h1>Trải nghiệm ngay nào!</h1>
+                  <p>Đăng ký để nhận thông tin về các sản phẩm mới nhất và các ưu đãi đặc biệt của chúng tôi. Chúng tôi cũng cung cấp các hướng dẫn và cách trang trí nhà cửa để giúp bạn tạo nên không gian sống hoàn hảo. Hãy truy cập trang web của chúng tôi ngay hôm nay để khám phá thêm những điều thú vị và đặt hàng các sản phẩm trang trí nội thất tuyệt vời của chúng tôi.</p>
+                  <button class="btn btn-outline-light rounded w-25">Xem hướng dẫn</button>
+                  <button class="btn btn-outline-light rounded w-25 ml-3 bg-main products-btn">Mua ngay</button>
+               </div>
+            </div>
+         </div>
+   
+         <a role="button" href="#slides" class="carousel-control-prev" data-slide="prev">
+            <i class="ti-angle-double-left" aria-hidden="true"></i>
+         </a>
+         <a role="button" href="#slides" class="carousel-control-next" data-slide="next">
+            <i class="ti-angle-double-right" aria-hidden="true"></i>
+         </a>
+     </div>
+   <!-- GIỚI THIỆU SẢN PHẨM -->
+     <div class="content1 container-fluid mt-5">
+         <div class="rown d-flex align-items-start">
+            <!-- Sidebar-Banner -->
+            <div class="col-lg-2 d-sm-none d-md-none d-lg-none d-xl-block">
+               <img class="rounded" src="./Images/side-baner.gif" alt="">
+            </div>
+   
+            <div class="col-lg-10 col-md-12 d-md-block d-sm-none">
+   
+               <!-- SẢN PHẨM BÁN CHẠY -->
+                 <div class="container bg-main py-4 rounded d-sm-none d-md-block" id="product">
+                  <div class="d-flex justify-content-center">
+                     <hr class="text-bg d-inline w-25 border-dark">
+                     <h2 class="mb-5 selling-fast text-bg mx-3">Sản phẩm bán chạy</h2>
+                     <hr class="text-bg d-inline w-25 border-dark">
+                  </div>
+   
+                  <div class="carousel slide" id="slides1" data-ride="carousel" data-interval="4000">
+                     <div class="carousel-inner">
+   
+                        <div class="carousel-item active">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="0">
+                                 <img class="card-img-top" src="./Images/lọ hoa5/lothuytinh.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Lọ thuỷ tinh</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="1">
+                                 <img class="card-img-top" src="./Images/lọ hoa5/lothuytinhtrangtri.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Lọ thuỷ tinh trang trí</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">12.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">10.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="2">
+                                 <img class="card-img-top" src="./Images/trang trí để bàn6/hoamattroi.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Hoa mặt trời</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">10.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">8.800.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="3">
+                                 <img class="card-img-top" src="./Images/trang trí để bàn6/hopkhangiaycaocap.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Hộp khăn giấy cao cấp</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">5.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="4">
+                                 <img class="card-img-top" src="./Images/trang trí để bàn6/khaytrangtrihoacaocap.png" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Khay trang trí hoa cao cấp</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">9.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">8.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="5">
+                                 <img class="card-img-top" src="./Images/trang trí để bàn6/nuthanlongvu.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Nữ thần lông vũ</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">3.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">2.500.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="6">
+                                 <img class="card-img-top" src="./Images/đèn trang trí1/DenMikeyTrangTri.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đèn Mikey trang trí</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">2.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">1.900.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="7">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/donghotreotuongphihanhgia.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ treo tường phi hành gia</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">4.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">3.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="8">
+                                 <img class="card-img-top" src="./Images/đèn trang trí1/Den-ban-trang-triLL.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đèn bàn trang trí</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">5.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">3.500.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+   
+                     </div>
+   
+                     <a href="#slides1" role="button" data-slide="prev" class="carousel-control-prev">
+                        <i class="ti-angle-double-left" aria-hidden="true"></i>
+                     </a>
+                     <a href="#slides1" role="button" data-slide="next" class="carousel-control-next">
+                        <i class="ti-angle-double-right" aria-hidden="true"></i>
+                     </a>
+                  </div>
+                 </div>
+   
+               <!-- SẢN PHẨM MỚI NHẤT -->
+                 <div class="container bg-main py-4 rounded mt-5 d-sm-none d-md-block" id="product">
+   
+                  <div class="d-flex justify-content-center">
+                     <hr class="text-bg d-inline w-25 border-dark">
+                     <h2 class="mb-5 selling-fast text-bg mx-3">Sản phẩm mới nhất</h2>
+                     <hr class="text-bg d-inline w-25 border-dark">
+                  </div>
+   
+                  <div class="carousel slide" id="slides2" data-ride="carousel" data-interval="5000">
+                     <div class="carousel-inner">
+   
+                        <div class="carousel-item active">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="9">
+                                 <img class="card-img-top" src="./Images/đèn trang trí1/DenTrangTri.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đèn trang trí</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="10">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/donghotreotuong.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ treo tường</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="11">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/DongHoQuaLac.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ quả lắc</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="12">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/donghotoigianbacau.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ tối giản bắc âu</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">3.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">2.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="13">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/DongHoTRangTri.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ trang trí</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">5.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">4.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="14">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/donghotreotuongqualacconchim.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ treo tường quả lắc con chim</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="card-wrapper">
+                              <div class="col-md-4 card rounded product-item" id="15">
+                                 <img class="card-img-top" src="./Images/đèn trang trí1/Banana Lightning.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đèn quả chuối</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="16">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/DonghotoigianbacAuqualac.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ tối giản băc âu quả lắc</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                              <div class="col-md-4 card rounded product-item" id="17">
+                                 <img class="card-img-top" src="./Images/đồng hồ2/donghotreotuong2.jpg" alt="">
+                                 <div class="card-body">
+                                    <div class="card-title d-block">Đồng hồ treo tường</div>
+                                    <p class="card-text d-inline-block text-txtcolor price-discount">7.999.000đ</p>
+                                    <p class="card-text d-inline-block ml-5 text-main price-curren">6.500.000đ</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+   
+                     </div>
+   
+                     <a href="#slides2" role="button" data-slide="prev" class="carousel-control-prev">
+                        <i class="ti-angle-double-left" aria-hidden="true"></i>
+                     </a>
+                     <a href="#slides2" role="button" data-slide="next" class="carousel-control-next">
+                        <i class="ti-angle-double-right" aria-hidden="true"></i>
+                     </a>
+                  </div>
+                 </div>
+            </div>
+         </div>
+   
+     </div>
+   
+   <!-- TẤT CẢ SẢN PHẨM -->
+     <div class="container-fluid mt-2 px-5 py-1" id="products">
+         <div class="d-flex justify-content-around align-items-center mt-5">
+            <div class="line-separate"></div>
+            <h1 class="allprd text-txtcolor">Tất cả sản phẩm</h1>
+            <div class="line-separate"></div>
+         </div>
+        <div class="row mt-5 container-sticky">
+            <!-- SIDEBAR -->
+            <div class="col-lg-2 col-md-4 col-sm-12 all-product-sidebar">
+   
+               <div class="list-group list-unstyled bg-transparent" role="tablist" id="sidebar-product">
+                  <button disabled class="list-group-item bg-main text-primary rounded-top text-center">Danh mục <br> sản phẩm</button>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md active bg-primary text-txtcolor" id="all">Tất cả</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="lamp">Đèn trang trí</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="clock">Đồng hồ</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="glass">Gương trang trí</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="flowerVase">Lọ hoa</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="desktopDecor">Trang trí để bàn</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="wallHangging">Trang trí treo tường</div>
+                  <div data-toggle="list" role="tab"  class="list-group-item list-group-item-action fillter text-md bg-primary text-txtcolor" id="decorTrayStd">Tượng đỡ khay trang trí</div>
+               </div>
+   
+               <div class="list-group list-unstyled bg-transparent mt-4">
+                  <div class="list-group-item bg-main text-primary rounded-top">Khoảng giá</div>
+                  <input type="number" name="" id="minPrice" class="list-group-item bg-primary text-txtcolor" placeholder="Giá thấp nhất">
+                  <input type="number" name="" id="maxPrice" class="list-group-item bg-primary text-txtcolor" placeholder="Giá cao nhất">
+                  <button id="fillByPriceBtn" type="submit" class="list-group-item bg-primary text-txtcolor btn">Xác nhận</button>
+               </div>
+   
+            </div>
+   
+            <!-- DANH SÁCH TẤT CẢ SẢN PHẨM -->
+            <div class="col-lg-10 col-md-8 col-sm-12 ml-auto">
+   
+               <div class="row">
+                  <div class="input-group mx-auto mb-3 w-25 p-2">
+                     <select class="custom-select" id="sort-product">
+                       <option selected value="0">Giá tăng dần</option>
+                       <option value="1">Giá giảm dần</option>
+                     </select>
+                     <div class="input-group-append" id="sortPrdBtn">
+                       <label class="input-group-text" for="sort-product">Sắp xếp</label>
+                     </div>
+                   </div>
+                   <ul class="pagination justify-content-center mx-auto">
+                     
+                   </ul>
+               </div>
+   
+               <div class="row d-flex justify-content-start align-items-start" id="all-product-list">
+   
+                  <!-- <div class="m-3 product-item">
+                     <div class="card product-card">
+                        <div class="discount-tag">-50%</div>
+                        <div class="img-product-zoom">
+                           <img src="./Images/gương trang trí3/guongtrangtri1.jpg" alt="" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                           <div class="card-title">Gương trang trí</div>
+                           <div class="text-center">
+                              <span class="pre-discount line-through mr-5">3.990.000</span>
+                              <span class="after-discount text-main ml-5">3.199.000</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div> -->
+   
+               </div>
+   
+            </div>
+   
+         </div>
+   <!-- PAGINATION -->
+         <nav aria-label="Page navigation" class="row mt-5">
+            <ul class="pagination justify-content-center mx-auto">
+               <li class="page-item active" value="1"><a href="#products" class="page-link bg-primary text-txtcolor text-md">1</a></li>
+            </ul>
+         </nav>
+         
+      </div>
+</div>
+   
+<!-- FOOTER -->
+<footer class="pt-5 row">
+   <div class="container">
+      <div class="row py-3">
+         <div class="col-md-3">
+            <h3 class="text-md">About Us</h3>
+            <ul>
+               <li><a href="#" class="text-md">Members</a></li>
+               <li><a href="#" class="text-md">Projects</a></li>
+               <li><a href="#" class="text-md">Description</a></li>
+               <li><a href="#" class="text-md">Info Member 1</a></li>
+               <li><a href="#" class="text-md">Info Member 2</a></li>
+            </ul>
+         </div>
+         <div class="col-md-3">
+            <h3 class="text-md">Our Products</h3>
+            <ul>
+               <li><a href="#" class="text-md">Living Room</a></li>
+               <li><a href="#" class="text-md">Bedroom</a></li>
+               <li><a href="#" class="text-md">Kitchen</a></li>
+               <li><a href="#" class="text-md">Bathroom</a></li>
+               <li><a href="#" class="text-md">Outdoor</a></li>
+            </ul>
+         </div>
+         <div class="col-md-3">
+            <h3 class="text-md">Support</h3>
+            <ul>
+               <li><a href="#" class="text-md">Customer Service</a></li>
+               <li><a href="#" class="text-md">Shop search engine</a></li>
+               <li><a href="#" class="text-md">Payment</a></li>
+               <li><a href="#" class="text-md">Delivery</a></li>
+               <li><a href="#" class="text-md">Return & Refund promotion</a></li>
+               <li><a href="#" class="text-md">Website Map</a></li>
+            </ul>
+         </div>
+         <div class="col-md-3">
+            <h3 class="text-md">Contact Us</h3>
+            <ul>
+               <li><a href="#" class="text-md">123 Main Street</a></li>
+               <li><a href="#" class="text-md">Anytown, USA 12345</a></li>
+               <li><a href="#" class="text-md">Phone: (123) 456-7890</a></li>
+               <li><a href="#" class="text-md">Email: info@interiordecor.com</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   <div class="container bg-dark" style="max-width: 100%;">
+      <div class="row py-2">
+         <div class="list-us col-md-12 py-3" style="display: flex; justify-content: center;">
+               <p><a href="#" class="text-md">Cài Đặt Cookie</a></p>
+               <p><a href="#" class="text-md">Chính sách Bảo mật</a></p>
+               <p><a href="#" class="text-md">Điều Khoản và Điều Kiện</a></p>
+               <p><a href="#" class="text-md">XUẤT BẢN BỞI</a></p>
+               <p><a href="#" class="text-md">@2023 Công ty Decor VIETNAM</a></p>
+         </div>
+   </div>
+</footer>
+
+
+  <script type="module" src="./js/data.js"></script>
+   <script type="module" src="js/main.js"></script>
+</body>
+</html>
