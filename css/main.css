@@ -309,9 +309,7 @@ h1.allprd {
    margin-left: auto !important;
    transition: all .3s linear;
 }
-.container-sticky {
-   height: calc(418px * 5 + 73px);
-}
+
 .page-item {
    height: 50px;
    width: 50px;
@@ -419,6 +417,7 @@ input[type="number"],
 input[type="text"] {
    cursor: auto;
 }
+
 .product-img {
    min-height: 260px;
    min-width: 260px;
@@ -678,33 +677,38 @@ th,td {
    font-size: 16px;
 }
 footer {
-   margin-top: auto;
-   position: relative;
-   bottom: 0;
+   margin-top: 70px!important;
 }
-footer .container .list-us a{
-   color: white;
+a {
+   text-decoration: none!important;
 }
-
-footer .container .list-us p{
-   padding: 0 30px;
+.col-lg-3 h3 {
+   color: var(--text-color);
+   font-size: 23px!important;
+   font-weight: 900!important;
+   user-select: none;
 }
-
-footer .container .col-md-3 h3{
-   font-weight: bolder;
-   font-size: 20px !important;
-   color: black ;
+.col-lg-3 ul li a {
+   color: var(--text-color)!important;
 }
-
-footer .container .col-md-3 a{
-   font-size: 15px !important;
-   color: black ;
+.col-lg-3 ul li a:hover {
+   color: var(--main-color)!important;
 }
-
-footer .container .list-us a{
-   text-decoration: none;
-   font-size: 12px !important;
+.list-us {
+   width: 100%;
+   display: flex!important;
+   flex-wrap: wrap;
+   justify-content: center!important;
+   align-items: start;
+   user-select: none;
+   color: var(--primary-color)!important;
 }
-.ti-close {
-   font-weight: 900;
+.list-us span {
+   min-width: 150px;
+   margin-left: 20px;
+   margin-top: 20px;
+}
+.list-us span a {
+   color: var(--primary-color)!important;
+   text-decoration: none!important;
 }

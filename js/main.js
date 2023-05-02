@@ -280,7 +280,7 @@ $(document).ready(function () {
         let res = data.map(
             (product) =>
                 `
-         <div class="m-3 product-item" id="${product.id}" value="${
+         <div class="m-3 product-item mx-md-auto mx-lg-auto" id="${product.id}" value="${
                     product.type
                 }">
             <div class="card product-card">
