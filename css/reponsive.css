@@ -36,6 +36,12 @@
    .navbar-collapse {
       width: 100%!important;
    }
+   .dropdown-menu {
+      top: 110%!important;
+      right: 100%!important;
+      bottom: auto;
+
+   }
 }
 @media (max-width: 768px) {
    .content1 {
