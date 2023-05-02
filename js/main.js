@@ -484,18 +484,18 @@ $(document).ready(function () {
   
               <div class="detail-share mt-5">
                  <span class="text-md text-txtcolor text-uppercase">Chia sẻ: </span>
-                 <a href="#"><img class="ml-3" height="30" src="/Images/social/facebook-icon.png" alt=""></a>
-                 <a href="#"><img class="ml-3" height="34" src="/Images/social/logo-instagram-5.jpg" alt=""></a>
+                 <a href="#"><img class="ml-3" height="30" src="./Images/social/facebook-icon.png" alt=""></a>
+                 <a href="#"><img class="ml-3" height="34" src="./Images/social/logo-instagram-5.jpg" alt=""></a>
               </div>
   
               <div class="detail-support mt-3">
                  <span class="text-big">Bạn cần hỗ trợ</span>
                  <a href="#" class="sp-mess ml-5 mt-4">
-                    <img src="/Images/social/877514_media_512x512.png" height="33" alt="">
+                    <img src="./Images/social/877514_media_512x512.png" height="33" alt="">
                     <span class="text-md ml-3">Liên hệ qua facebook</span>
                  </a>
                  <a href="#" class="sp-zalo ml-5 mt-4">
-                    <img src="/Images/social/download.png"height="33" alt="">
+                    <img src="./Images/social/download.png"height="33" alt="">
                     <span class="text-md ml-3">Liên hệ qua Zalo</span>
                  </a>
               </div>
@@ -507,12 +507,34 @@ $(document).ready(function () {
 
         $('#detail-page').html(pageItem);
 
+  
+
+        $('.desc-quantity').click(function() {
+            changQuantity(false);
+        })
+        $('.asc-quantity').click(function() {
+            changQuantity(true);
+        })
+
         $('.back-btn').click(function () {
             switchPage('#home-content', listPage);
             goTo('#products');
         });
     }
-
+    function changQuantity(asc = true) {
+        let quantity = parseInt($('.detail-quantity').val());
+        if(asc == false) {
+            if(quantity == 1) {
+                return;
+            } else {
+                --quantity;
+                $('.detail-quantity').val(quantity);
+            }
+        } else {
+            ++quantity;
+            $('.detail-quantity').val(quantity);
+        }
+    }
     function addEventChooseItem(Items) {
         $('.product-item').click(function () {
             let itemIdTargeting = parseInt($(this).prop('id'));
