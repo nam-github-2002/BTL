@@ -197,30 +197,29 @@ $(document).ready(function () {
     }
 
     //KIỂM TRA VÀ IN THÔNG TIN NGƯỜI ĐĂNG KÍ
-    const signUpBtn = $('#sign-up-btn');
 
-    $('#regist-form input:not(:radio)').each(function (i, input) {
-        $(input).on('input', function () {
-            if (
-                checkLoginName() &&
-                checkPassword() &&
-                checkReliable() &&
-                checkName() &&
-                checkAge() &&
-                checkEmail() &&
-                checkPhone() &&
-                checkAdrress() &&
-                checkAgree()
-            ) {
-                signUpBtn.removeAttr('disabled');
-            } else {
-                signUpBtn.attr('disabled');
-            }
-        });
-    });
+    setInterval(() => {
+        const signUpBtn = $('#sigin-up-btn');
 
-    let stt = 1;
-    $('.modal-footer #sigin-up-btn').click(function () {
+        if (
+            checkLoginName() &&
+            checkPassword() &&
+            checkReliable() &&
+            checkName() &&
+            checkAge() &&
+            checkEmail() &&
+            checkPhone() &&
+            checkAdrress() &&
+            checkAgree()
+        ) {
+            signUpBtn.prop('disabled', false);
+        } else {
+            signUpBtn.prop('disabled', true);
+        }
+    }, 1000);
+
+    let stt = 3;
+    $('#sigin-up-btn').click(function () {
         $('.modal').modal('hide');
         let name = $('#name').val();
         let email = $('#email').val();
@@ -240,7 +239,9 @@ $(document).ready(function () {
         $('#print-info').append(html);
         ++stt;
 
-        switchPage('#members');
+        switchPage('#members',listPage);
+        gotoTop();
+        changeHeader();
     });
 
     // THAY ĐỔI HEADER
