@@ -61,9 +61,7 @@ $(document).ready(function () {
     });
 
     // FORM
-    $('.login-btn').click(function () {
-        $('#loginModal').modal();
-    });
+
     $('.tabLogin-btn').click(function () {
         $('#regist-form').addClass('hide');
         $('#login-form').removeClass('hide');
@@ -198,28 +196,31 @@ $(document).ready(function () {
 
     //KIỂM TRA VÀ IN THÔNG TIN NGƯỜI ĐĂNG KÍ
 
-    setInterval(() => {
-        const signUpBtn = $('#sigin-up-btn');
-
-        if (
-            checkLoginName() &&
-            checkPassword() &&
-            checkReliable() &&
-            checkName() &&
-            checkAge() &&
-            checkEmail() &&
-            checkPhone() &&
-            checkAdrress() &&
-            checkAgree()
-        ) {
-            signUpBtn.prop('disabled', false);
-        } else {
-            signUpBtn.prop('disabled', true);
-        }
-    }, 1000);
+    $('.login-btn').click(function () {
+        $('#loginModal').modal();
+        setInterval(() => {
+            const signUpBtn = $('#sigin-up-btn');
+    
+            if (
+                checkLoginName() &&
+                checkPassword() &&
+                checkReliable() &&
+                checkName() &&
+                checkAge() &&
+                checkEmail() &&
+                checkPhone() &&
+                checkAdrress() &&
+                checkAgree()
+            ) {
+                signUpBtn.prop('disabled', false);
+            } else {
+                signUpBtn.prop('disabled', true);
+            }
+        }, 1000);
+    });
 
     let stt = 3;
-    $('#sigin-up-btn').click(function () {
+    $('.sigin-up-btn').click(function () {
         $('.modal').modal('hide');
         let name = $('#name').val();
         let email = $('#email').val();
