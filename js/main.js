@@ -281,7 +281,7 @@ $(document).ready(function () {
         let res = data.map(
             (product) =>
                 `
-         <div class="m-3 product-item mx-md-auto mx-lg-auto" id="${product.id}" value="${
+         <div class="m-3 product-item" id="${product.id}" value="${
                     product.type
                 }">
             <div class="card product-card">
@@ -413,37 +413,45 @@ $(document).ready(function () {
         currenData = filterProductByType(data, this.id);
         totalPage = calcTotalPage(currenData);
         renderListPage(totalPage);
-        renderProductsPage(currenData, currentPage);
+        renderProductsPage(currenData, 1);
+        sortProduct(currenData);
     });
 
     $('#fillByPriceBtn').click(function () {
+        let temp = currenData;
         let minPrice = parseInt($('#minPrice').val());
         let maxPrice = parseInt($('#maxPrice').val());
         currenData = filterProductByPrice(currenData, minPrice, maxPrice);
         totalPage = calcTotalPage(currenData);
         renderListPage(totalPage);
-        renderProductsPage(currenData, currentPage);
+        renderProductsPage(currenData, 1);
+        sortProduct(currenData);
+        currenData = temp;
     });
 
-    $('#sortPrdBtn').click(function () {
-        let optionSort = parseInt($('#sort-product').val());
+    function sortProduct(currenData) {
 
-        switch (optionSort) {
-            case 0:
-                currenData = sortProductsByPrice(currenData);
-                renderListPage(totalPage);
-                currentPage = 1;
-                renderProductsPage(currenData, currentPage);
-                break;
-            case 1:
-                currenData = sortProductsByPrice(currenData, false);
-                renderListPage(totalPage);
-                currentPage = 1;
-                renderProductsPage(currenData, currentPage);
-                break;
-        }
-    });
-
+        $('#sortPrdBtn').click(function () {
+            let optionSort = parseInt($('#sort-product').val());
+    
+            switch (optionSort) {
+                case 0:
+                    currenData = sortProductsByPrice(currenData);
+                    renderListPage(totalPage);
+                    currentPage = 1;
+                    renderProductsPage(currenData, currentPage);
+                    sortProduct(currenData);
+                    break;
+                case 1:
+                    currenData = sortProductsByPrice(currenData, false);
+                    renderListPage(totalPage);
+                    currentPage = 1;
+                    renderProductsPage(currenData, currentPage);
+                    sortProduct(currenData);
+                    break;
+            }
+        });
+    }
     // RENDER CHI TIẾT SẢN PHẨM
     function renderDetailItem(item) {
         let pageItem = `
