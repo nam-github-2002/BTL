@@ -132,7 +132,7 @@ $(document).ready(function () {
 
     function checkName() {
         let name = $('#name').val();
-        let regexName = /^[A-Z][a-z]*([ ]+[A-Z][a-z]*)+$/;
+        let regexName = /^([A-Z][a-z]*)(\s[A-Z][a-z]*)+$/;
         if (!regexName.test(name)) {
             $('#checkName').html('Họ tên không phù hợp!');
             return false;
