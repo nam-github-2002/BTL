@@ -196,6 +196,99 @@
 </div>
 </div>
 
+<!-- THANH TOÁN -->
+<div class="container" id="payment" style="display: none;">
+   <div class="row align-items-center">
+      <button class="col-2 ml-0 btn rounded products-btn">
+         <i class="ti-arrow-left text-big"></i>
+         <span class="text-big ml-2">QUAY LẠI</span>
+      </button>
+      <h1 class="col-8 mb-5 mt-5 ml-auto">THANH TOÁN</h1>
+   </div>
+   <div class="row">
+      <div class="col-md-6">
+         <h2>Thông tin sản phẩm</h2>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>Tên sản phẩm</th>
+                  <th>Giá tiền</th>
+                  <th>Số lượng</th>
+               </tr>
+            </thead>
+            <tbody id="list-pay">
+               <tr>
+                  <td>Áo phông nam</td>
+                  <td>300.000 đ</td>
+                  <td>1</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="col-md-6">
+         <h2>Thông tin khách hàng</h2>
+         <form>
+            <div class="form-group">
+               <label class="text-md" for="name">Họ tên</label>
+               <input type="text" class="form-control text-md" id="name-pay" placeholder="Họ tên">
+            </div>
+            <div class="form-group">
+               <label class="text-md" for="address">Địa chỉ</label>
+               <input type="text" class="form-control text-md" id="address-pay" placeholder="Địa chỉ">
+            </div>
+            <div class="form-group">
+               <label class="text-md" for="phone">Số điện thoại</label>
+               <input type="text" class="form-control text-md" id="phone-pay" placeholder="Số điện thoại">
+            </div>
+            <div class="form-group">
+               <label class="text-md" for="email">Email</label>
+               <input type="email" class="form-control text-md" id="email-pay" placeholder="Email">
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-6">
+         <h2>Phương thức thanh toán</h2>
+         <div class="payment-method">
+            <div class="form-check d-flex align-items-center">
+               <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard" checked>
+               <label class="text-md ml-2 form-check-label" for="creditCard">Thẻ tín dụng</label>
+            </div>
+            <div class="form-check d-flex align-items-center">
+               <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bankTransfer">
+               <label class="text-md ml-2 form-check-label" for="bankTransfer">Chuyển khoản</label>
+            </div>
+            <div class="form-check d-flex align-items-center">
+               <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" value="cashOnDelivery">
+               <label class="text-md ml-2 form-check-label" for="cashOnDelivery">Thanh toán khi nhận hàng</label>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-6">
+         <h2>Thông tin thanh toán</h2>
+         <form>
+            <div class="form-group">
+               <label class="text-md" for="cardNumber">Số thẻ</label>
+               <input type="text" class="form-control text-md" id="cardNumber" placeholder="Số thẻ">
+            </div>
+            <div class="form-group">
+               <label class="text-md" for="expiryDate">Ngày hết hạn</label>
+               <input type="text" class="form-control text-md" id="expiryDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+               <label class="text-md" for="cvv">CVV</label>
+               <input type="text" class="form-control text-md" id="cvv" placeholder="CVV">
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="row mb-5 mt-4">
+      <div class="col-md-2  mx-auto">
+         <button type="submit" class="btn btn-primary text-big">Thanh toán</button>
+      </div>
+   </div>
+</div>
 
 <!-- GIỎ HÀNG -->
 <div class="dropleft cart">
@@ -316,18 +409,18 @@
 
             <div class="detail-share mt-5">
                <span class="text-md text-txtcolor text-uppercase">Chia sẻ: </span>
-               <a href="#"><img class="ml-3" height="30" src="/Images/social/facebook-icon.png" alt=""></a>
-               <a href="#"><img class="ml-3" height="34" src="/Images/social/logo-instagram-5.jpg" alt=""></a>
+               <a href="#"><img class="ml-3" height="30" src="./Images/social/facebook-icon.png" alt=""></a>
+               <a href="#"><img class="ml-3" height="34" src="./Images/social/logo-instagram-5.jpg" alt=""></a>
             </div>
 
             <div class="detail-support mt-3">
                <span class="text-big">Bạn cần hỗ trợ</span>
                <a href="#" class="sp-mess ml-5 mt-4">
-                  <img src="/Images/social/877514_media_512x512.png" height="33" alt="">
+                  <img src="./Images/social/877514_media_512x512.png" height="33" alt="">
                   <span class="text-md ml-3">Liên hệ qua facebook</span>
                </a>
                <a href="#" class="sp-zalo ml-5 mt-4">
-                  <img src="/Images/social/download.png"height="33" alt="">
+                  <img src="./Images/social/download.png"height="33" alt="">
                   <span class="text-md ml-3">Liên hệ qua Zalo</span>
                </a>
             </div>

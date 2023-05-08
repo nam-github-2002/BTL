@@ -369,6 +369,7 @@ for (let i = 0; i < length; ++i) {
             data[i].typeVN = typeListVN[j];
         }
     }
+    data[i].hasInCart = false;
 }
 
 export default data;

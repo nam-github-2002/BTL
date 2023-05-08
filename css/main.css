@@ -755,3 +755,35 @@ a {
 .figure-caption {
    margin-left: auto !important;
 }
+#payment h1 {
+   color: var(--main-color);
+}
+
+.col-md-6 form .form-group label {
+   color: var(--main-color);
+   font-weight: bold;
+}
+
+.payment-method .form-check label {
+   color: var(--main-color);
+   font-weight: bold;
+}
+
+.btn-primary {
+   background-color: var(--main-color);
+   border-color: var(--main-color);
+}
+
+.btn-primary:hover {
+   background-color: rgb(17, 45, 78);
+   border-color: rgb(17, 45, 78);
+}
+
+.table thead {
+   background-color: var(--main-color);
+   color: white;
+}
+
+.table tbody tr:nth-child(even) {
+   background-color: rgb(219, 226, 239);
+}
