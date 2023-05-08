@@ -61,18 +61,18 @@ $(document).ready(function () {
     });
 
     // FORM
+    $('#regist-form, .sigin-up-submit').hide();
 
     $('.tabLogin-btn').click(function () {
-        $('#regist-form').addClass('hide');
-        $('#login-form').removeClass('hide');
-        $('#sigin-up-btn').addClass('d-none').removeClass('d-inline');
-        $('#login-btn').addClass('d-inline').removeClass('d-none');
+        $('#regist-form, .sigin-up-submit').hide();
+      
+        $('.login-submit, #login-form').show();
     });
+
     $('.tabRegist-btn').click(function () {
-        $('#login-form').addClass('hide');
-        $('#regist-form').removeClass('hide');
-        $('#sigin-up-btn').addClass('d-inline').removeClass('d-none');
-        $('#login-btn').addClass('d-none').removeClass('d-inline');
+        $('#login-form, .login-submit').hide();
+
+        $('#regist-form, .sigin-up-submit').show();
     });
 
     // CHECK VALIDATE FORM
@@ -199,7 +199,7 @@ $(document).ready(function () {
     $('.login-btn').click(function () {
         $('#loginModal').modal();
         setInterval(() => {
-            const signUpBtn = $('#sigin-up-btn');
+            const signUpBtn = $('.sigin-up-submit');
     
             if (
                 checkLoginName() &&
@@ -213,19 +213,31 @@ $(document).ready(function () {
                 checkAgree()
             ) {
                 signUpBtn.prop('disabled', false);
+                signUpBtn.css('pointer-events','auto');
             } else {
                 signUpBtn.prop('disabled', true);
+                signUpBtn.css('pointer-events','none');
             }
         }, 1000);
     });
 
     let stt = 3;
-    $('.sigin-up-btn').click(function () {
-        $('.modal').modal('hide');
+    $('.sigin-up-submit').click(function () {
+        $('#loginModal').modal('hide');
+        let username = $('#regist-name').val();
+        let password = $('#regist-password').val();
         let name = $('#name').val();
         let email = $('#email').val();
         let phone = $('#phone').val();
         let address = $('#address').val();
+
+        let user = {
+            username: username,
+            password: password,
+            name: name
+        }
+
+        localStorage.setItem('user', JSON.stringify(user));
 
         let html = `
             <tr>
@@ -245,9 +257,11 @@ $(document).ready(function () {
         changeHeader();
     });
 
+ 
+
     // THAY ĐỔI HEADER
     function changeHeader() {
-        if (this.scrollY >= 200) {
+        if (window.scrollY >= 200) {
             $('.navbar').css('height', '50px');
             $('.navbar').css('background-color', 'rgba(63,114,175,0.9)');
             $('.navbar-brand').css({
@@ -556,4 +570,35 @@ $(document).ready(function () {
             gotoTop();
         });
     }
+
+    // XỬ LÝ ĐĂNG NHẬP
+    $('.log-out-btn').click(function () { 
+        $('.dropdown.avt').hide();
+        $('.nav-item.login').show();
+    })
+
+    $('.login-submit').click(function() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        let usernameLogin = $('#login-input').val();
+        let passwordLogin = $('#login-input-password').val();
+
+        if (usernameLogin == user.username && passwordLogin == user.password) {
+
+            $('#loginModal').modal('hide');
+            $('.user-name').html(user.name);
+            $('.nav-item.login').hide();
+            $('.nav-item.avt').show();
+
+        } else if (usernameLogin == user.username && passwordLogin != user.password) {
+
+            $('.info-login-password').html('Mật khẩu không chính xác');
+            $('.info-login-input').html('');
+
+        } else if (usernameLogin != user.username || !user.username) {
+
+            $('.info-login-input').html('Tài khoản không tồn tại');
+
+        }
+    })
+
 });

@@ -20,7 +20,7 @@
    <a href="#" class="navbar-brand">
       <img src="./Images/decor-low-resolution-logo-color-on-transparent-background.png" alt="Logo" height="70">
    </a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navReponsive" aria-controls="navReponsive" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="navbar-toggler text-md" type="button" data-toggle="collapse" data-target="#navReponsive" aria-controls="navReponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
          <i class="ti-menu"></i>
       </span>
@@ -41,13 +41,27 @@
          <li class="nav-item my-3 ml-5">
             <a href="#products" class="nav-link products-btn">Sản phẩm</a>
          </li>
-         <li class="nav-item my-3 ml-5">
+         <li class="nav-item my-3 ml-5 login">
             <a href="#loginModal" class="nav-link login-btn">Đăng nhập</a>
          </li>
-         <li class="nav-item my-3 ml-5 my-auto">
+         <li class="nav-item my-auto ml-5">
             <a href="#search-modal" class="nav-link search-btn border-0 ">
                <i class="ti-search text-big"></i>
             </a>
+         </li>
+         <li class="nav-item my-3 ml-5 dropdown avt" style="display: none;">
+            <div class="dropdown">
+               <button class="btn dropdown-toggle" type="button" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="./Images/avt-macdinh.jpg" height="35" class="rounded-circle" alt="Avatar">
+                  <span class="user-name ml-2 text-md my-auto"></span>
+               </button>
+               <ul class="dropdown-menu avt-dropdown" aria-labelledby="avatar-dropdown">
+                  <li><a class="dropdown-item text-md mb-3" href="#">Tài khoản của tôi</a></li>
+                  <li><a class="dropdown-item text-md mb-3" href="#">Cài đặt</a></li>
+                  <li><a class="dropdown-item text-md mb-3" href="#">Lịch sử giao dịch</a></li>
+                  <li><a class="dropdown-item text-md mb-3 log-out-btn" href="#">Đăng xuất</a></li>
+               </ul>
+            </div>
          </li>
       </ul>
    </div>
@@ -89,10 +103,12 @@
             <div class="form-group">
                <label class="text-md" for="login-input">Tài khoản: </label>
                <input class="text-md w-100 form-control" type="text" name="" id="login-input">
+               <span class="text-danger text-sm info-login-input"></span>
             </div>
             <div class="form-group my-4">
                <label class="text-md" for="login-input-password">Mật khẩu: </label>
                <input class="text-md w-100 form-control" type="password" name="" id="login-input-password">
+               <span class="text-danger text-sm info-login-password"></span>
             </div>
             <div class="row">
                <span class="text-md ml-5">Chưa có tài khoản? <a class="text-md tabRegist-btn" href="#regist-form">Đăng kí</a></span>
@@ -100,7 +116,7 @@
          </form>
 
          <!-- REGIST FORM -->
-         <form action="" id="regist-form" class="hide">
+         <form action="" id="regist-form">
             <div class="form-group mb-2">
                <label for="regist-name" class="text-md">Tài khoản: </label>
                <input require type="text" name="" id="regist-name" class="text-md form-control">
@@ -128,7 +144,7 @@
                </div>
                <div class="col">
                   <div class="form-check form-check-inline ml-5">
-                     <input type="radio" id="check-gt1" value="1" name="gioitinh">
+                     <input type="radio" id="check-gt1" value="1" name="gioitinh" checked>
                      <label for="check-gt1" class="text-md ml-2">Nam</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -172,8 +188,8 @@
       </div>
 
       <div class="modal-footer">
-         <button class="btn bg-primary text-md mx-auto px-4 py-2" type="submit" id="login-btn">Đăng nhập</button>
-         <button class="btn bg-primary text-md mx-auto px-4 py-2 d-none sigin-up-btn" type="submit">Đăng kí</button> 
+         <button class="btn bg-primary text-md mx-auto px-4 py-2 login-submit" type="submit">Đăng nhập</button>
+         <button  disabled style="pointer-events: none;" class="btn bg-primary text-md mx-auto px-4 py-2 sigin-up-submit" type="submit">Đăng kí</button> 
       </div>
 
    </div>

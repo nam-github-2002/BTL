@@ -712,3 +712,14 @@ a {
    color: var(--primary-color)!important;
    text-decoration: none!important;
 }
+.avt .btn {
+   background-color: transparent;
+}
+.avt-dropdown {
+   right: 0;
+   left: auto;
+   border-radius: 5px;
+}
+.dropdown-toggle {
+   font-size: 20px;
+}
