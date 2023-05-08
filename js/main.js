@@ -539,12 +539,71 @@ $(document).ready(function () {
         $('.asc-quantity').click(function() {
             changQuantity(true);
         })
-
+        
         $('.back-btn').click(function () {
             switchPage('#home-content', listPage);
             goTo('#products');
         });
+        
+
+        let hasThisItem = false;
+        $('button.add-to-cart').click(function() {
+
+            let quantity = parseInt($('.detail-quantity').val());
+            addtoCart(item,quantity,hasThisItem);
+            hasThisItem = true;
+
+        })
+
     }
+    function addtoCart(productItem, quantity,hasThisItem) {
+        if(!hasThisItem) {
+            
+            let html = `
+            <div class="dropdown-item cart-item item-${productItem.id} rounded">
+                <img height="65" class="rounded" src="${productItem.img}" alt="">
+    
+                <div class="cart-item-title">
+                    <h4 class="float-left mb-1">${productItem.title}</h4><br>
+                    <span class="d-block float-left">Phân loại: ${productItem.typeVN}</span>
+                </div>
+    
+                <div class="cart-item-pay ml-auto">
+                    <span class="text-main">${productItem.afterDiscountInner()}</span>
+                    <span>x</span>
+                    <span class="item-quantity-${productItem.id}">${quantity}</span>
+                    <br>
+                    <button class="btn border-0 text-main delete-item-${productItem.id}">Xoá</button>
+                </div>
+            </div>
+            `
+            $('.inner-cart').append(html);
+            let numitemInCart = parseInt($('.num-item-in-cart').text());
+            ++numitemInCart;
+            $('.figure').hide();
+            $('.num-item-in-cart').html(numitemInCart);
+
+            hasThisItem = deleteItemCartHandle(productItem,numitemInCart);
+
+        } else {
+
+            let currQuantity = parseInt($(`.item-quantity-${productItem.id}`).text());
+            currQuantity += quantity;
+            $(`.item-quantity-${productItem.id}`).html(currQuantity);
+
+        }
+    }
+    function deleteItemCartHandle(productItem,numitemInCart) {
+        let a = true;
+        $(`.delete-item-${productItem.id}`).click(function() {
+            $(`.item-${productItem.id}`).remove();
+            --numitemInCart;
+            if(numitemInCart === 0) $('.figure').show();
+            $(`.num-item-in-cart`).html(numitemInCart);
+            a = false;
+        })
+        return a;
+     }
     function changQuantity(asc = true) {
         let quantity = parseInt($('.detail-quantity').val());
         if(asc == false) {

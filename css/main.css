@@ -194,6 +194,8 @@ hr.text-bg {
    left: auto;
    min-width: 383px;
    padding: 0;
+   border-bottom-left-radius: none!important;
+   border-bottom-right-radius: none!important;
 }
 .cart .dropdown-menu .dropdown-item {
    cursor: default;
@@ -722,4 +724,34 @@ a {
 }
 .dropdown-toggle {
    font-size: 20px;
+}
+.pay-btn {
+   position: absolute;
+   top: 94%;
+   left: 0;
+   color: var(--background-color)!important;
+   background-color: var(--main-color)!important;
+}
+.pay-btn:hover {
+   color: var(--text-color)!important;
+   background-color: var(--background-color)!important;
+}
+.num-item-in-cart {
+   position: absolute;
+   top: -10px;
+   left: -10px;
+   width: 30px;
+   height: 30px;
+   color: var(--background-color)!important;
+   background-color: var(--main-color)!important;
+   border: 1px solid var(--background-color)!important;
+   line-height: 30px;
+   font-size: 16px;
+   z-index: 9999;
+}
+.inner-cart {
+   padding-bottom: 0;
+}
+.figure-caption {
+   margin-left: auto !important;
 }

@@ -321,6 +321,16 @@ let typeList = [
     'wallHangging',
     'decorTrayStd',
 ];
+let typeListVN = [
+    'Đèn',
+    'Đồng hồ',
+    'Gương',
+    'Khác',
+    'Lọ hoa',
+    'Để bàn',
+    'Treo tường',
+    'Giá đỡ',
+];
 
 let length = data.length;
 for (let i = 0; i < length; ++i) {
@@ -356,6 +366,7 @@ for (let i = 0; i < length; ++i) {
     for (let j = 0; j < reg.length; ++j) {
         if (reg[j].test(data[i].img)) {
             data[i].type = typeList[j];
+            data[i].typeVN = typeListVN[j];
         }
     }
 }
