@@ -565,6 +565,8 @@ $(document).ready(function () {
                     <td>${quantity}</td>
                 </tr>
             `);
+            let sumToPay = (item.afterDiscount() * quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            $('.sumToPay').html(sumToPay + " đ");
             switchPage('#payment',listPage);
             gotoTop();
         })
@@ -645,10 +647,19 @@ $(document).ready(function () {
         }
         $('#list-pay').html(html.join(''));
     }
-    $('.pay-btn').click(function() {
-
+    $('.pay-btn').click(function(e) {
+        e.preventDefault();
+        let sum = 0;
         createListPay(listItemPay);
         switchPage('#payment',listPage);
+        for(let i = 0; i < listItemPay.length; ++i) {
+            sum += listItemPay[i][0].afterDiscount() * listItemPay[i][1];
+            console.log(sum);
+        }
+
+        let sumToPay = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        $('.sumToPay').html(sumToPay + " đ");
+
         gotoTop();
         
     })

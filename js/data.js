@@ -353,6 +353,7 @@ for (let i = 0; i < length; ++i) {
         }).format(a);
         return res;
     };
+    
     data[i].afterDiscount = function () {
         return Math.floor(preDiscount - preDiscount * data[i].discount);
     };
